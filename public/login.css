@@ -1,0 +1,40 @@
+#senha-container {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 40px;
+  margin: 100px auto;
+  width: 320px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+#senha-container input {
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+  background: #222;
+  color: #fff;
+  font-size: 16px;
+}
+
+#senha-container button {
+  background: #ff3333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+#senha-container button:hover {
+  background: #cc0000;
+}
+
+#mensagem {
+  color: #ff6666;
+  margin-top: 10px;
+}

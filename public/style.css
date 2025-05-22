@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  color: #eee;
+  font-size: 14.5px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+.container {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 30px 40px;
+  background: #171717;
+  border-radius: 16px;
+  box-shadow:
+    inset 3px 3px 5px #1c1c1c,
+    inset -3px -3px 5px #121212;
+}
+
+.titulo {
+  font-weight: 600;
+  font-size: 2.8rem;
+  color: #ff3c3c;
+  letter-spacing: 1.2px;
+  text-align: center;
+  margin-bottom: 42px;
+  user-select: text;
+  text-transform: uppercase;
+  text-shadow: 0 0 6px #ff3c3c88;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+input, textarea, select {
+  background: #1e1e1e;
+  border-radius: 14px;
+  border: none;
+  padding: 14px 20px;
+  font-size: 1rem;
+  color: #ddd;
+  box-shadow:
+    7px 7px 15px #121212,
+    -7px -7px 15px #2a2a2a;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  resize: vertical;
+  font-weight: 300;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #666;
+  font-weight: 300;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  background: #2a2a2a;
+  box-shadow:
+    inset 3px 3px 7px #121212,
+    inset -3px -3px 7px #2e2e2e;
+  color: #fff;
+}
+
+button {
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 14px 0;
+  border-radius: 14px;
+  border: 2px solid #ff3c3c;
+  background: transparent;
+  color: #ff3c3c;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  box-shadow:
+    7px 7px 15px #121212,
+    -7px -7px 15px #2a2a2a;
+  user-select: none;
+}
+
+button:hover {
+  background: #ff3c3c;
+  color: #171717;
+  box-shadow:
+    inset 4px 4px 7px #121212,
+    inset -4px -4px 7px #2a2a2a;
+  transform: scale(1.03);
+}
+
+.lista-perguntas {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.pergunta-card {
+  background: #1e1e1e;
+  border-radius: 14px;
+  padding: 22px 28px;
+  box-shadow:
+    7px 7px 15px #121212,
+    -7px -7px 15px #2a2a2a;
+  cursor: pointer;
+  user-select: none;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+}
+
+.pergunta-card:hover {
+  box-shadow:
+    9px 9px 19px #0f0f0f,
+    -9px -9px 19px #313131;
+}
+
+.pergunta-card strong {
+  color: #ff3c3c;
+  font-weight: 600;
+  font-size: 1.15rem;
+  user-select: text;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.resposta {
+  max-height: 0;
+  overflow: hidden;
+  color: #ccc;
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transition: max-height 0.45s ease;
+  user-select: text;
+}
+
+.pergunta-card.active .resposta {
+  max-height: 300px;
+  margin-top: 12px;
+}
+
+.botoes {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contador {
+  font-weight: 600;
+  font-size: 1.4rem;
+  text-align: center;
+  color: #ff3c3c;
+  margin-bottom: 36px;
+  user-select: none;
+}
+
+.faq-marcado {
+  background: #297b2922;
+  border-left: 6px solid #297b29;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #171717;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #ff3c3c;
+  border-radius: 10px;
+}
+select {
+  appearance: none; /* remove seta padrão */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #222;
+  color: #fff;
+  padding: 10px 40px 10px 10px; /* espaço pra seta */
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23ff3333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px 16px;
+  cursor: pointer;
+}
+
+/* Remove o foco com outline padrão, deixa um glow vermelho */
+select:focus {
+  outline: none;
+  box-shadow: 0 0 8px #ff3333;
+}
+.notificacao-box {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #09ff00;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px #09ff00;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  font-weight: 600;
+  user-select: none;
+  z-index: 9999;
+}
+
+.notificacao-box.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.filtros {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+  justify-content: center;
+}
+
+.btn-filtro {
+  background: #1e1e1e;
+  border: 2px solid #ff3c3c;
+  color: #ff3c3c;
+  padding: 8px 18px;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-filtro:hover {
+  background: #ff3c3c;
+  color: #171717;
+}
+
+.btn-filtro.ativo {
+  background: #ff3c3c;
+  color: #171717;
+  cursor: default;
+}
+.logo-fixa {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 100px; /* ajuste conforme necessário */
+  height: auto;
+  z-index: 10000;
+  transition: transform 0.3s ease;
+  opacity: 0.95;
+}
+
+.logo-fixa:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}

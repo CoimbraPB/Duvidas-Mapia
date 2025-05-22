@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enviar Pergunta</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1 class="titulo">Pergunta sobre o MAPIA</h1>
+    <form id="formulario">
+      <input type="text" id="nome" placeholder="Seu nome" required />
+      <select id="departamento" required>
+        <option value="">Selecione o Departamento</option>
+        <option>DP</option>
+        <option>CONTÁBIL</option>
+        <option>FISCAL</option>
+        <option>SOCIETARIO/REGULARIZAÇÃO</option>
+      </select>
+      <textarea id="pergunta" placeholder="Digite sua pergunta..." required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+    <h2>📌 FAQ</h2>
+    <div id="faq" class="lista-perguntas"></div>
+
+    <h2>Perguntas Recentes</h2>
+      <div id="filtros-departamento" class="filtros">
+        <button data-dep="Todos" class="btn-filtro ativo">Todos</button>
+        <button data-dep="DP" class="btn-filtro">DP</button>
+        <button data-dep="CONTÁBIL" class="btn-filtro">CONTÁBIL</button>
+        <button data-dep="FISCAL" class="btn-filtro">FISCAL</button>
+        <button data-dep="SOCIETARIO/REGULARIZAÇÃO" class="btn-filtro">SOCIETARIO/REGULARIZAÇÃO</button>
+      </div>
+    <div id="perguntas" class="lista-perguntas"></div>
+    <div id="notificacao" class="notificacao-box"></div> 
+    <img src="logopb.png" alt="Logo" class="logo-fixa"> 
+  </main>
+
+  <script src="script-index.js"></script>
+</body>
+</html>
