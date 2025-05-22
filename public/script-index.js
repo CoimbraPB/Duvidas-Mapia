@@ -59,23 +59,51 @@ async function carregarFAQ() {
   renderizarFaqsFiltradas('Todos');
 }
 
+function criarBotaoPergunta(p) {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'pergunta-wrapper';
+
+  const botao = document.createElement('button');
+  botao.type = 'button';
+  botao.className = 'faq-question';
+  // Texto do botão atualizado
+  botao.textContent = `Nome: ${p.nome} — Pergunta: ${p.pergunta || 'Sem pergunta'}`;
+
+  const resposta = document.createElement('div');
+  resposta.className = 'faq-answer';
+  resposta.innerHTML = `
+    <p><strong>Departamento:</strong> ${p.departamento}</p>
+    <p><strong>Resposta:</strong> ${p.resposta}</p>
+  `;
+  resposta.style.display = 'none';
+
+  botao.addEventListener('click', () => {
+    const isAtivo = resposta.style.display === 'block';
+    if (isAtivo) {
+      resposta.style.display = 'none';
+      botao.classList.remove('active');
+    } else {
+      resposta.style.display = 'block';
+      botao.classList.add('active');
+    }
+  });
+
+  wrapper.appendChild(botao);
+  wrapper.appendChild(resposta);
+
+  return wrapper;
+}
+
 function renderizarPerguntasFiltradas(filtro) {
   const container = document.getElementById('perguntas');
   container.innerHTML = '';
 
   perguntasCache.forEach(p => {
     if (!p.resposta) return;
-
     if (filtro !== 'Todos' && p.departamento !== filtro) return;
 
-    const div = document.createElement('div');
-    div.className = 'pergunta-card';
-    div.innerHTML = `
-      <p style="color: red; font-weight: bold; margin:0;">Nome: <span style="font-weight: normal; color: white;">${p.nome}</span></p>
-      <p style="color: red; font-weight: bold; margin:0;">Departamento: <span style="font-weight: normal; color: white;">${p.departamento}</span></p>
-      <p style="color: red; font-weight: bold; margin:0;">Resposta: <span style="font-weight: normal; color: white;">${p.resposta}</span></p>
-    `;
-    container.appendChild(div);
+    const perguntaBotao = criarBotaoPergunta(p);
+    container.appendChild(perguntaBotao);
   });
 }
 
@@ -85,17 +113,10 @@ function renderizarFaqsFiltradas(filtro) {
 
   faqsCache.forEach(p => {
     if (!p.resposta) return;
-
     if (filtro !== 'Todos' && p.departamento !== filtro) return;
 
-    const div = document.createElement('div');
-    div.className = 'pergunta-card';
-    div.innerHTML = `
-      <p style="color: red; font-weight: bold; margin:0;">Nome: <span style="font-weight: normal; color: white;">${p.nome}</span></p>
-      <p style="color: red; font-weight: bold; margin:0;">Departamento: <span style="font-weight: normal; color: white;">${p.departamento}</span></p>
-      <p style="color: red; font-weight: bold; margin:0;">Resposta: <span style="font-weight: normal; color: white;">${p.resposta}</span></p>
-    `;
-    container.appendChild(div);
+    const perguntaBotao = criarBotaoPergunta(p);
+    container.appendChild(perguntaBotao);
   });
 }
 
@@ -114,7 +135,7 @@ function configurarFiltros() {
       const filtro = botao.getAttribute('data-dep');
 
       renderizarPerguntasFiltradas(filtro);
-      renderizarFaqsFiltradas('Todos'); // <-- Aqui o FAQ sempre mostra tudo
+      renderizarFaqsFiltradas('Todos'); // FAQ sempre mostra tudo (pode mudar se quiser)
     });
   });
 }
