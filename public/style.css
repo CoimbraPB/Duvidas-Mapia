@@ -3,8 +3,8 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
-  color: #eee;
+  background: #fff;
+  color: #111;
   font-size: 14.5px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -16,7 +16,8 @@ body {
   max-width: 700px;
   margin: 60px auto;
   padding: 30px 40px;
-  background: #171717;
+  background: #f3f3f3;
+  color: #111;
   border-radius: 16px;
   box-shadow:
     inset 3px 3px 5px #1c1c1c,
@@ -26,13 +27,12 @@ body {
 .titulo {
   font-weight: 600;
   font-size: 2.8rem;
-  color: #ff3c3c;
+  color: #111;
   letter-spacing: 1.2px;
   text-align: center;
   margin-bottom: 42px;
   user-select: text;
-  text-transform: uppercase;
-  text-shadow: 0 0 6px #ff3c3c88;
+  text-shadow: none;
 }
 
 form {
@@ -42,15 +42,15 @@ form {
 }
 
 input, textarea, select {
-  background: #1e1e1e;
+  background: #fff;
+  color: #11111100;
+  box-shadow:
+    7px 7px 15px #eee,
+    -7px -7px 15px #ccc;
   border-radius: 14px;
   border: none;
   padding: 14px 20px;
   font-size: 1rem;
-  color: #ddd;
-  box-shadow:
-    7px 7px 15px #121212,
-    -7px -7px 15px #2a2a2a;
   transition: box-shadow 0.3s ease, background-color 0.3s ease;
   resize: vertical;
   font-weight: 300;
@@ -58,42 +58,44 @@ input, textarea, select {
 
 input::placeholder,
 textarea::placeholder {
-  color: #666;
-  font-weight: 300;
+  color: #888;
 }
 
 input:focus, textarea:focus, select:focus {
-  outline: none;
-  background: #2a2a2a;
+  background: #f3f3f3;
+  color: #111;
   box-shadow:
-    inset 3px 3px 7px #121212,
-    inset -3px -3px 7px #2e2e2e;
-  color: #fff;
+    inset 3px 3px 7px #ddd,
+    inset -3px -3px 7px #bbb;
 }
 
-button {
+button,
+.btn-filtro {
   font-weight: 600;
   font-size: 1.1rem;
   padding: 14px 0;
   border-radius: 14px;
-  border: 2px solid #ff3c3c;
-  background: transparent;
-  color: #ff3c3c;
+  border: 2px solid #bbb;
+  background: #f3f3f3;
+  color: #111;
   cursor: pointer;
   transition: all 0.35s ease;
-  box-shadow:
-    7px 7px 15px #121212,
-    -7px -7px 15px #2a2a2a;
+  box-shadow: none; /* Remove sombra escura */
   user-select: none;
 }
 
-button:hover {
-  background: #ff3c3c;
-  color: #171717;
-  box-shadow:
-    inset 4px 4px 7px #121212,
-    inset -4px -4px 7px #2a2a2a;
-  transform: scale(1.03);
+button:hover,
+.btn-filtro:hover {
+  background: #e0e0e0; /* Cinza mais escuro no hover */
+  color: #111;
+  border-color: #888;
+}
+
+.btn-filtro.ativo {
+  background: #bbb;
+  color: #111;
+  cursor: default;
+  border-color: #888;
 }
 
 .lista-perguntas {
@@ -104,12 +106,9 @@ button:hover {
 }
 
 .pergunta-card {
-  background: #1e1e1e;
-  border-radius: 14px;
-  padding: 22px 28px;
-  box-shadow:
-    7px 7px 15px #121212,
-    -7px -7px 15px #2a2a2a;
+  background: #fff;
+  color: #111;
+  box-shadow: none;
   cursor: pointer;
   user-select: none;
   transition: box-shadow 0.3s ease;
@@ -118,12 +117,11 @@ button:hover {
 
 .pergunta-card:hover {
   box-shadow:
-    9px 9px 19px #0f0f0f,
-    -9px -9px 19px #313131;
+    0 4px 18px #bbb; /* sombra clara e suave */
 }
 
 .pergunta-card strong {
-  color: #ff3c3c;
+  color: #111;
   font-weight: 600;
   font-size: 1.15rem;
   user-select: text;
@@ -198,15 +196,15 @@ button:hover {
   background: #171717;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #ff3c3c;
+  background-color: #bbb;
   border-radius: 10px;
 }
 select {
   appearance: none; /* remove seta padrão */
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-color: #222;
-  color: #fff;
+  background-color: #fff;
+  color: #888;
   padding: 10px 40px 10px 10px; /* espaço pra seta */
   border-radius: 8px;
   border: none;
@@ -227,11 +225,11 @@ select:focus {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background-color: #09ff00;
-  color: white;
+  background-color: #111;
+  color: #fff;
   padding: 15px 25px;
   border-radius: 12px;
-  box-shadow: 0 4px 15px #09ff00;
+  box-shadow: 0 4px 15px #bbb;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.5s ease;
@@ -253,9 +251,9 @@ select:focus {
 }
 
 .btn-filtro {
-  background: #1e1e1e;
-  border: 2px solid #ff3c3c;
-  color: #ff3c3c;
+  background: transparent;
+  border: 2px solid #888;
+  color: #111;
   padding: 8px 18px;
   font-weight: 600;
   border-radius: 12px;
@@ -265,13 +263,13 @@ select:focus {
 }
 
 .btn-filtro:hover {
-  background: #ff3c3c;
-  color: #171717;
+  background: #111;
+  color: #fff;
 }
 
 .btn-filtro.ativo {
-  background: #ff3c3c;
-  color: #171717;
+  background: #111;
+  color: #fff;
   cursor: default;
 }
 .logo-fixa {
@@ -295,8 +293,8 @@ select:focus {
   width: 100%;
   text-align: left;
   background: transparent;
-  color: #ff3c3c;
-  border: 2px solid #ff3c3c;
+  color: #111;
+  border: 2px solid #bbb;
   padding: 14px 20px;
   font-weight: 600;
   font-size: 1.1rem;
@@ -304,8 +302,8 @@ select:focus {
   cursor: pointer;
   margin-bottom: 6px;
   box-shadow:
-    7px 7px 15px #121212,
-    -7px -7px 15px #2a2a2a;
+    7px 7px 15px #888,
+    -7px -7px 15px #888;
   transition: all 0.35s ease;
   white-space: normal;
   word-wrap: break-word;
@@ -313,25 +311,21 @@ select:focus {
   word-break: break-word;
 }
 
-.faq-question:hover {
-  background: #ff3c3c;
-  color: #171717;
-  box-shadow:
-    inset 4px 4px 7px #121212,
-    inset -4px -4px 7px #2a2a2a;
-  transform: scale(1.03);
+.faq-question:hover,
+.faq-question.active {
+  background: #bbb;
+  color: #111;
+  border-color: #111;
 }
 
-.faq-question.active {
-  background: #ff3c3c;
-  color: #171717;
-  border-color: #ff3c3c;
-}
 .faq-answer {
   display: none;
   padding: 12px 16px;
-  background-color: #222;
-  color: white;
+  background-color: #f3f3f3;
+  color: #111;
+  box-shadow:
+    inset 4px 4px 7px #eee,
+    inset -4px -4px 7px #ccc;
   border-radius: 12px;
   margin-top: 6px;
   font-size: 0.95rem;
@@ -341,9 +335,6 @@ select:focus {
   overflow-wrap: break-word;
   word-break: break-word;
   max-width: 100%;
-  box-shadow:
-    inset 4px 4px 7px #121212,
-    inset -4px -4px 7px #2a2a2a;
 }
 
 .faq-answer p {

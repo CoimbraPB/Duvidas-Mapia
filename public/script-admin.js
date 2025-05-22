@@ -56,6 +56,19 @@ function editarResposta(id) {
   `;
 }
 
+function verificarSenha() {
+  const senhaCorreta = "adm123"; // Altere aqui se quiser
+  const senhaDigitada = document.getElementById("senha").value;
+  const mensagem = document.getElementById("mensagem");
+
+  if (senhaDigitada === senhaCorreta) {
+    document.getElementById("senha-container").style.display = "none";
+    document.getElementById("painel").style.display = "block";
+  } else {
+    mensagem.textContent = "Senha incorreta!";
+  }
+}
+
 async function salvarRespostaEditada(id) {
   const input = document.getElementById(`input-editar-${id}`);
   const novaResposta = input.value.trim();
